@@ -1,6 +1,6 @@
 class Rope{
-    constructor(body1,body2,offsetX,offsetY)
-}
+    constructor(body1,body2,offsetX,offsetY){
+
 this.offsetX=offsetX
 this.offsetY=offsetY
 var options={
@@ -8,11 +8,16 @@ var options={
     bodyB:body2,
     pointB:{x:this.offsetX,y:this.offsetY}
 }
-this.rope=constraint.create(options)
+this.rope=Constraint.create(options)
 World.add(world,this.rope)
+    }
 
-rope1=new rope(ball1.body,roof.body,ball1Diameter*2,0)
-rope2=new rope(ball2.body,roof.body,ball2Diameter*2,0)
-rope3=new rope(ball3.body,roof.body,ball3Diameter*2,0)
-rope4=new rope(ball4.body,roof.body,ball4Diameter*2,0)
-rope5=new rope(ball5.body,roof.body,ball5Diameter*2,0)
+    display(){
+        var pointA = this.rope.bodyA.position;
+        var pointB = this.rope.bodyB.position;
+        line(pointA.x, pointA.y-20, pointB.x+this.offsetX, pointB.y);
+    }
+
+}
+
+
